@@ -1,0 +1,24 @@
+{{ block title }}
+    ControlPage
+{{ endblock }}
+{{ block content }}
+
+{{ formfield_errors 'psswd' }}
+    <p onclick='show()'>
+        Please listen to the instructions
+    </p>
+{{ if roleid == 'experimenter' }}
+    experimenter input psswd here: <br> <input type='number' name='psswd'> <br>
+{{ endif }}
+
+{{ next_button }}
+
+<label id='backup' hidden>backup input: <input id='backup-text' name='psswd' type='hidden'>
+
+<script>
+    function show() {
+        document.getElementById('backup').removeAttribute('hidden');
+        document.getElementById('backup-text').type = 'number';
+    }
+</script>
+{{ endblock }}
